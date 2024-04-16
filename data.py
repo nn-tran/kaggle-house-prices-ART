@@ -1,7 +1,8 @@
 # Import Libraries
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import scale, LabelEncoder
+from sklearn.model_selection import train_test_split
 
 import neural_net as net
 
@@ -38,11 +39,6 @@ for cat_feature in cat_features:
     lbl = LabelEncoder() 
     lbl.fit(list(test_data[cat_feature].values)) 
     test_data[cat_feature] = lbl.transform(list(test_data[cat_feature].values))
-
-
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import scale
-import numpy as np
 
 train, test = train_test_split(train_data, test_size=0.3)
 y_train = train[['SalePrice']]
