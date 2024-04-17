@@ -79,6 +79,6 @@ for i_epochs in range(1000):
 
 test_predictions = np.multiply(nn(test_data).numpy(), 100000).flatten()
 
-submission_df = pd.DataFrame({'SalePrice': test_predictions}, index=range(1461, 2920))
+submission_df = pd.DataFrame({'Id': range(1461, 2920), 'SalePrice': test_predictions}, )
 print(submission_df)
-submission_df.to_csv('submit.csv')
+submission_df.to_csv('submit.csv', index=False)
